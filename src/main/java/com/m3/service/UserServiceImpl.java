@@ -31,33 +31,37 @@ public class UserServiceImpl implements Userservice {
 	@Autowired
 	private JavaMailSender sender;
 
-	
 	@Value("${file.upload-path}")
 	private String folderPath;
-	
-	
+
 	@Autowired
 	UserDao dao;
 
 	@Override
 	public Map<String, Object> addProfile(UserModel user) throws IOException {
-		
-		
-		
 		Map<String, Object> response = new HashMap<>();
-		
-		String fileName = StringUtils.cleanPath(user.getMultipartimage().getOriginalFilename());
-		Path path = Paths.get(folderPath + fileName);
-		long copy = Files.copy(user.getMultipartimage().getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-		user.setImgUrl(fileName);
-		
-		int result = dao.addProfile(user);
-		if (result > 0) {
-			response.put("200", "Success");
+		if (user.getMultipartimage().isEmpty()) {
+			int result = dao.addProfileWithoutImage(user);
+			if (result > 0) {
+				response.put("200", "Success");
+			} else {
+				response.put("204", "Failed");
+			}
+			return response;
 		} else {
-			response.put("204", "Failed");
+			String fileName = StringUtils.cleanPath(user.getMultipartimage().getOriginalFilename());
+			Path path = Paths.get(folderPath + fileName);
+			long copy = Files.copy(user.getMultipartimage().getInputStream(), path,
+					StandardCopyOption.REPLACE_EXISTING);
+			user.setImgUrl(fileName);
+			int result = dao.addProfile(user);
+			if (result > 0) {
+				response.put("200", "Success");
+			} else {
+				response.put("204", "Failed");
+			}
+			return response;
 		}
-		return response;
 	}
 
 	@Override
@@ -65,8 +69,6 @@ public class UserServiceImpl implements Userservice {
 		try {
 			Map<String, Object> userdetail = dao.validateData(user);
 			String password = (String) userdetail.get("password");
-//			System.out.println("=================" + password);
-
 			if (password.equals(user.getPassword())) {
 				return "200";
 			} else {
@@ -125,6 +127,12 @@ public class UserServiceImpl implements Userservice {
 
 	@Override
 	public int updateProfile(UserModel user) throws IOException {
+		if(user.getMultipartimage().isEmpty())
+		{
+			return dao.updateProfileWithoutImage(user);
+		}
+		else
+		{
 		String fileName = StringUtils.cleanPath(user.getMultipartimage().getOriginalFilename());
 		Path path = Paths.get(folderPath + fileName);
 		long copy = Files.copy(user.getMultipartimage().getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
@@ -132,13 +140,18 @@ public class UserServiceImpl implements Userservice {
 
 		return dao.updateProfile(user);
 	}
-	
-	
-		@Override
+		}
+
+	@Override
 	public String getEmailCount(UserModel user) {
 		return dao.getEmailCount(user);
 	}
-
+	
+	@Override
+	public String getEmailCountAjax(String email) {
+		return dao.getEmailCountAjax(email);
+		}
+	
 	@Override
 	public int getProfileCount(UserModel user) {
 		// TODO Auto-generated method stub
@@ -148,17 +161,15 @@ public class UserServiceImpl implements Userservice {
 	@Override
 	public List<Map<String, Object>> getProfileByPage(int page_id, int total) {
 		// TODO Auto-generated method stub
-		return dao.getProfileByPage(page_id , total);
+		return dao.getProfileByPage(page_id, total);
 	}
 
 	@Override
-	public List<Map <String,Object>>getalluser() {
+	public List<Map<String, Object>> getalluser() {
 		return dao.getalluser();
-		
+
 	}
-	
-	
-	
+
 	@Override
 	public String isProfileValid(UserModel user) {
 		MimeMessage message = sender.createMimeMessage();
@@ -175,5 +186,18 @@ public class UserServiceImpl implements Userservice {
 		sender.send(message);
 		return "message sent";
 	}
+
+	@Override
+	public int getChartData() {
+		return dao.getChartData();
+	}
+
+	@Override
+	public int getProfileCount() {
+		return dao.getProfileCount();
+	}
+
+	
+	
 
 }

@@ -29,6 +29,7 @@ public class UserController {
 	public String login() {
 		return "login";
 	}
+	
 
 	@GetMapping(value = "/Dashboard")
 	public String Dashboard(HttpSession session) {
@@ -44,9 +45,9 @@ public class UserController {
 		return "signup";
 	}
 
-	@GetMapping("/sendmail")
+	@GetMapping("/forgetpassword")
 	public String forget() {
-		return "sendmail";
+		return "forgetpassword";
 	}
 
 	@PostMapping(value = "/addProfile")
@@ -82,6 +83,19 @@ public class UserController {
 		} else {
 			rd.addFlashAttribute("error", "Email allready Exist");
 			return "redirect:/signup";
+		}
+	}
+	
+	
+	@GetMapping(value = "/registerValidation")
+	@ResponseBody
+	public String registerValidation1(@RequestParam String email) throws IOException {
+
+		Integer emaildashId = Integer.parseInt(service.getEmailCountAjax(email));
+		if (emaildashId <= 0) {
+			return "200";
+		} else {
+			return "201";
 		}
 	}
 
@@ -230,15 +244,34 @@ public class UserController {
 		}
 	}
 
-	@PostMapping("/sendmail")
+	@PostMapping("/forgetpassword")
 	public String sendMail(UserModel user, HttpSession session, RedirectAttributes rd, Model model) {
 		if (service.isProfileValid(user).equals("Error")) {
 			rd.addFlashAttribute("notfound", "Enter the valid email");
-			return "redirect:/sendmail";
+			return "redirect:/forgetpassword";
 		} else {
 			session.setAttribute("session", user.getEmail());
 			rd.addFlashAttribute("send", " Please Check Your Mail!");
 			return "redirect:/login";
 		}
 	}
+	
+	@GetMapping("/chart")
+	public String chart(Model model, HttpSession session) {
+		try {
+			if (session.getAttribute("email") == null && session.getAttribute("email").equals("")) {
+				return "redirect:/login";
+			} else {
+				model.addAttribute("chartData", service.getChartData());
+				model.addAttribute("userData", service.getProfileCount());
+				return "chart";
+			}
+		} catch (Exception e) {
+			return "redirect:/login";
+		}
+	}
+
+	
+	
+	
 }

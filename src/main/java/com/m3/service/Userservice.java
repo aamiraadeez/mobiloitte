@@ -31,4 +31,12 @@ public interface Userservice {
 
 	Object isProfileValid(UserModel user);
 
+	String getEmailCountAjax(String email);
+
+	int getChartData();
+
+	int getProfileCount();
+
+	
+
 }

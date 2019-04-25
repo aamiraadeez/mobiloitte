@@ -89,11 +89,6 @@
 
 										</div>
 
-
-
-
-
-
 										<div class="row">
 											<div class="col-md-3 px-md-1">
 												<div class="form-group">
@@ -104,7 +99,6 @@
 										</div>
 
 										<div class="row">
-
 											<div class="col-md-3 px-md-1">
 												<div class="form-group">
 													<label class="bmd-label-floating">Password</label> <input
@@ -112,19 +106,7 @@
 														required>
 												</div>
 											</div>
-
-
-											<!-- 											<div class="col-md-3 px-md-1"> -->
-											<!-- 												<div class="form-group"> -->
-											<!-- 													<input type="checkbox" onclick="myFunction()">Show -->
-											<!-- 													Password<span -->
-											<!-- 														style="text-align: right; padding-left: 200px;">Forget -->
-											<!-- 														Password?<a href="sendmail">Click Here</a> -->
-											<!-- 													</span> -->
-											<!-- 												</div> -->
-											<!-- 											</div> -->
 										</div>
-
 
 
 
@@ -143,6 +125,17 @@
 										<div class="clearfix"></div>
 									</form>
 
+									<div class="row">
+										<div class="col-md-3 px-md-1">
+											<div class="form-group">
+												<!-- 													<input type="checkbox" onclick="myFunction()">Show -->
+												<!-- 													Password -->
+												<span style="text-align: right;"><a
+													href="forgetpassword">Forget Password</a> </span>
+											</div>
+										</div>
+									</div>
+
 
 
 									<div class="row">
@@ -150,7 +143,7 @@
 
 											<div class="card-footer">
 												<div class="d-flex justify-content-center links">
-													Don't have an account?<a href="signup">Sign Up</a>
+													Don't have an account?<a href="signup">&nbsp;Sign Up</a>
 												</div>
 											</div>
 										</div>

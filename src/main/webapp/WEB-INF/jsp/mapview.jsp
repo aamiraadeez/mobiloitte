@@ -24,7 +24,7 @@
 <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 <script type="text/javascript"
-	src="http://maps.google.com/maps/api/js?key=AIzaSyCm8rnRUZU0ecO8hpCF3KVANv9LmAXv0hc&libraries=places"></script>
+	src="http://maps.google.com/maps/api/js?key=AIzaSyCIzTZU8ariH_C22VUiJKFq1b9t7IA3_Pg&libraries=places"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 

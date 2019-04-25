@@ -211,7 +211,7 @@
 				</div>
 				<br>
 
-				<div class="content">
+				<div class="content" style="padding-left: 5%">
 
 
 					<div class="row">

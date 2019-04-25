@@ -6,6 +6,77 @@
 <html lang="en">
 <head>
 
+<meta charset="utf-8" />
+
+<link rel="apple-touch-icon" sizes="76x76"
+	href="dashboard/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Sign up</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- CSS Files -->
+<link href="../assets/css/material-dashboard.css?v=2.1.0"
+	rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="../assets/demo/demo.css" rel="stylesheet" />
+
+<!-- profress bar css  start -->
+<!-- <link href="../assets/css/progressbar.css" -->
+rel="stylesheet" />
+<!-- profress bar css end -->
+<style>
+#firstName-error {
+	color: red;
+}
+
+#lastName-error {
+	color: red;
+}
+
+#emailName-error {
+	color: red;
+}
+
+#password-error {
+	color: red;
+}
+
+#confirmPassword-error {
+	color: red;
+}
+
+#address-error {
+	color: red;
+}
+
+#email-error {
+	color: red;
+}
+
+#datepicker-error {
+	color: red;
+}
+
+#phoneNumber-error {
+	color: red;
+}
+
+#salary-error {
+	color: red;
+}
+</style>
+
+
+
 <!-- date picker links and script  -->
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
@@ -27,71 +98,6 @@
 	});
 </script>
 <!-- date picker links and script  -->
-
-
-
-
-<meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76"
-	href="dashboard/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="../assets/img/favicon.png">
-
-
-<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Sign up</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<!-- CSS Files -->
-<link href="../assets/css/material-dashboard.css?v=2.1.0"
-	rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="../assets/demo/demo.css" rel="stylesheet" />
-
-
-<style>
-
-#firstName-error{
-color:red;
-}
-#lastName-error{
-color:red;
-}
-#emailName-error{
-color:red;
-}
-#password-error{
-color:red;
-}
-#confirmPassword-error{
-color:red;
-}
-#address-error{
-color:red;
-}
-#email-error{
-color:red;
-}
-#datepicker-error{
-color:red;
-}
-
-#phoneNumber-error{
-color:red;
-}
-#salary-error{
-color:red;
-}
-
-
-</style>
-
 
 
 </head>
@@ -154,14 +160,14 @@ color:red;
 												<div class="form-group">
 													<label class="bmd-label-floating">First Name</label> <input
 														type="text" class="form-control" name="firstName"
-														id="firstName">
+														id="firstName" maxlength="20">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label class="bmd-label-floating">Last Name</label> <input
 														type="text" class="form-control" name="lastName"
-														id="lastName" required="true">
+														id="lastName" maxlength="20" required="true">
 												</div>
 											</div>
 										</div>
@@ -171,21 +177,26 @@ color:red;
 												<div class="form-group">
 													<label class="bmd-label-floating">Email address</label> <input
 														type="email" class="form-control" name="email" id="email"
-														required="true">
+														maxlength="64" required="true"> <span id=result
+														style="color: red"> </span>
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label class="bmd-label-floating">Password</label> <input
 														type="password" class="form-control" name="password"
-														id="password" required="true">
+														id="password" required="true" maxlength="16">
 												</div>
 											</div>
+											<!-- progress bar start  -->
+											<div class="pwstrength_viewport_progress"></div>
+											<!-- progress bar end -->
+
 											<div class="col-md-4">
 												<div class="form-group">
 													<label class="bmd-label-floating">Confirm Passsword</label>
 													<input type="password" class="form-control"
-														name="confirmPassword" id="confirmPassword"
+														name="confirmPassword" id="confirmPassword" maxlength="16"
 														required="true">
 												</div>
 											</div>
@@ -198,7 +209,7 @@ color:red;
 										</div>
 
 										<div class="row">
-											<div class="container-fluid">
+											<div class="container">
 												<div class="col-md-4">
 													<div class="form-group">
 														<input type="radio" class="form-check-input" id="radio1"
@@ -224,14 +235,19 @@ color:red;
 
 
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
 													<label class="bmd-label-floating">Adress</label> <input
 														type="text" class="form-control" name="address"
-														id="address" required="true">
+														id="address" required="true" maxlength="50">
 												</div>
 											</div>
-											<div class="col-md-6">
+
+											<div class="col-md-4">
+												<div class="form-group"></div>
+											</div>
+
+											<div class="col-md-4">
 												<div class="form-group">
 													<label class="bmd-label-floating">Phone Number</label> <input
 														type="text" class="form-control" name="phoneNumber"
@@ -266,51 +282,61 @@ color:red;
 												<div class="form-group">
 													<label class="bmd-label-floating">Salary</label> <input
 														type="text" class="form-control" name="salary" id="salary"
-														required="true">
+														required="true" maxlength="9">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-													<label>Date Of Birth</label> <input type="text" name="datePicker"
-														id="datepicker" class="form-control"  value="10/24/2009"  placeholder="dd/mm/yyyy" required="true">
+													<label>Date Of Birth</label> <input type="text"
+														name="datePicker" id="datepicker" class="form-control"
+														value="10/24/2009" placeholder="dd/mm/yyyy"
+														required="true">
 												</div>
 											</div>
 										</div>
-								</div>
 
 
 
-								<div class="row">
-									<div class="col-md-4">
-										<label>Image Upload </label> <input name="multipartimage"
-											id="img-upload-input"   type="file"   accept="image/*" required="true">
+
+										<div class="row">
+											<div class="col-md-4">
+												<label>Image Upload </label> <input name="multipartimage"
+													id="img-upload-input" type="file" accept="image/*"
+													required="true">
+											</div>
+										</div>
+
+
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group"></div>
+												<button type="submit" id="ajaxStart"
+													class="btn btn-primary pull-right">Add Profile</button>
+
+												<%-- 										<h4>${error}</h4> --%>
+
+
+												<label style="color: red;">${error}</label>
+
+
+												<div class="clearfix"></div>
+
+											</div>
+										</div>
+
+									</form>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group"></div>
+											<a type="submit" href="login"
+												class="btn btn-primary pull-right">login</a>
+										</div>
 									</div>
+
 								</div>
 
 
-
-								<div class="row">
-									<div class="col-md-12">
-										<div class="form-group"></div>
-										<button type="submit" class="btn btn-primary pull-right">Add
-											Profile</button>
-
-										<h4>${error}</h4>
-
-										<div class="clearfix"></div>
-
-									</div>
-								</div>
-
-								</form>
-
-								<div class="row">
-									<div class="col-md-12">
-										<div class="form-group"></div>
-										<a type="submit" href="login"
-											class="btn btn-primary pull-right">Cancel</a>
-									</div>
-								</div>
 
 
 							</div>
@@ -414,7 +440,6 @@ color:red;
 	</div>
 
 
-
 	<!--   Core JS Files   -->
 	<script src="../assets/js/core/jquery.min.js"></script>
 	<script src="../assets/js/core/popper.min.js"></script>
@@ -424,7 +449,8 @@ color:red;
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIzTZU8ariH_C22VUiJKFq1b9t7IA3_PgE"></script>
 	<!-- Chartist JS -->
 	<script src="../assets/js/plugins/chartist.min.js"></script>
 	<!--  Notifications Plugin    -->
@@ -433,15 +459,49 @@ color:red;
 	<script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
 	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
 	<!--   <script src="dashboard/assets/demo/demo.js"></script> -->
-	
-	<script>
 
-      function activateplace(){
-             var input=document.getElementById('address');
-             var autocomplete=new google.maps.places.Autocomplete(input);
-          }
+	<script>
+		function activateplace() {
+			var input = document.getElementById('address');
+			var autocomplete = new google.maps.places.Autocomplete(input);
+		}
 	</script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIzTZU8ariH_C22VUiJKFq1b9t7IA3_Pg&libraries=places&callback=activateplace"  ></script>
+
+
+	<script>
+		$(document).ready(function() {
+			$('#email').change(function(event) {
+				$("#ajaxStart").attr("disabled", false);
+				var email = $('#email').val();
+						// alert(email);
+				$.ajax({
+					url : "registerValidation?email=" + email,
+					type : "GET",
+					contentType : 'application/json;charset=utf-8',
+					dataType : 'json',
+					async : false,
+					success : function(response) {
+						// alert(response);
+						if (response == 201) {
+							$('#result').html("email already exist");
+							$("#ajaxStart").attr("disabled", true);
+						} else {
+						// $('#result').html( "email available ");
+
+						}
+					},
+					error : function(e) {
+						// 	alert(e)
+						console.log('error:' + JSON.stringify(e));
+					}
+
+				});
+
+			});
+		});
+	</script>
+
+
 	<script>
 		$(document)
 				.ready(
@@ -752,12 +812,16 @@ color:red;
 											});
 						});
 	</script>
-	
+
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="../assets/js/sign-up.js"></script>
+	<!-- 	js fro pregress bar start -->
+	<!-- 	<script type="text/javascript" src="../assets/js/progressbar.js"></script> -->
+	<!-- 	js fro pregress bar end -->
+
 
 	<!-- 	date picker script	 -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

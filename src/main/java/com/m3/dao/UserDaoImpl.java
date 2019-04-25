@@ -24,6 +24,16 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
+	public int addProfileWithoutImage(UserModel user) {
+
+		String sql = "INSERT INTO m3 (role ,firstName, lastName, email, password ,confirmPassword, gender, address, phoneNumber, maritalStatus , salary ,datePicker) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+		return jdbcTemplate.update(sql, user.getRole(), user.getFirstName(), user.getLastName(), user.getEmail(),
+				user.getPassword(), user.getConfirmPassword(), user.getGender(), user.getAddress(),
+				user.getPhoneNumber(), user.getMaritalStatus(), user.getSalary(), user.getDatePicker());
+
+	}
+
+	@Override
 	public int checkEmailAlreadyExist(String email) {
 		return jdbcTemplate.queryForObject("select count(*) from m3 where email=?", Integer.class, email);
 	}
@@ -71,11 +81,19 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
+	public int updateProfileWithoutImage(UserModel user) {
+		String sql = "update m3 set role=?, firstName=?,lastName=?, password=?,confirmPassword=?, gender= ? , address=?, phoneNumber=?, maritalStatus= ?, salary=?, datePicker=? where email=?";
+		return jdbcTemplate.update(sql, user.getRole(), user.getFirstName(), user.getLastName(), user.getPassword(),
+				user.getConfirmPassword(), user.getGender(), user.getAddress(), user.getPhoneNumber(),
+				user.getMaritalStatus(), user.getSalary(), user.getDatePicker(), user.getEmail());
+	}
+
+	@Override
 	public Map<String, Object> validateData(UserModel user) {
 		String sql = "select * from m3 where email=?";
 		return jdbcTemplate.queryForMap(sql, user.getEmail());
 	}
-	
+
 	@Override
 	public String isProfileValidate(UserModel user) {
 		String str = "Select password from m3 where email=?";
@@ -86,6 +104,12 @@ public class UserDaoImpl implements UserDao {
 	public String getEmailCount(UserModel user) {
 		String sql = "select count(*) from m3 where email=?";
 		return jdbcTemplate.queryForObject(sql, String.class, user.getEmail());
+	}
+
+	@Override
+	public String getEmailCountAjax(String email) {
+		String sql = "select count(*) from m3 where email=?";
+		return jdbcTemplate.queryForObject(sql, String.class, email);
 	}
 
 	@Override
@@ -105,8 +129,17 @@ public class UserDaoImpl implements UserDao {
 		String sql = "select * from m3";
 		return jdbcTemplate.queryForList(sql);
 	}
-	
-	
 
+	@Override
+	public int getChartData() {
+		String str = "select count(*) from m3 where role='admin'";
+		return jdbcTemplate.queryForObject(str, Integer.class);
+	}
+
+	@Override
+	public int getProfileCount() {
+		String str = "select count(*) from m3 where role='user'";
+		return jdbcTemplate.queryForObject(str, Integer.class);
+	}
 
 }

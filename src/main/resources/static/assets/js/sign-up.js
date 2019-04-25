@@ -17,14 +17,13 @@ $("#sign-up")
 						email : {
 							required : true,
 							regex : /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-							minlength : 5,
-							maxlength : 25
+							minlength : 5
 						},
 						password : {
 							required : true,
 							regex : /^(?!.* )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
-							minlength : 8,
-							maxlength : 16
+							minlength : 8
+
 						},
 						confirmPassword : {
 
@@ -35,8 +34,7 @@ $("#sign-up")
 						address : {
 							required : true,
 							regex : /^[A-Za-z-0-99999999']/,
-							minlength : 5,
-							maxlength : 20
+							minlength : 5
 						},
 
 						phoneNumber : {
@@ -69,15 +67,13 @@ $("#sign-up")
 						email : {
 							required : "This field is required.",
 							regex : "Enter correct email id.",
-							minlength : "Your email must be atleast 8 characters long.",
-							maxlength : "Your email is too long."
+							minlength : "Your email must be atleast 8 characters long."
 						},
 
 						password : {
 							required : "This field is required.",
 							regex : "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
-							minlength : "Your password must be atleast 8 characters long.",
-							maxlength : "Your password is too long."
+							minlength : "Your password must be atleast 8 characters long."
 						},
 						confirmPassword : {
 							required : "This field is required.",
@@ -86,8 +82,7 @@ $("#sign-up")
 						address : {
 							required : "This field is required.",
 							regex : "Enter valid address fromat (block|street|landmark|town|village)",
-							minlength : "Minimum 5 characters required.",
-							maxlength : "Maximum 20 characters allowed."
+							minlength : "Minimum 5 characters required."
 						},
 
 						phoneNumber : {

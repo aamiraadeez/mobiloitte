@@ -37,52 +37,7 @@
 		</nav>
 	</header>
 	<!-- Header End -->
-	<main class="main-container bg_gray">
-	<section class="inner_section common_section">
-		<div class="container">
-			<div class="max-WT-600 center-box">
-				<div class="global_box">
-					<div class="head_box2 head_box2_border">
-						<h4>Forget Password</h4>
-
-					</div>
-					<div class="row justify-content-center">
-						<div class="col-12">
-
-							<div class="form-box center-box max-WT-500">
-								<h5 style="color: green">${delete}</h5>
-								<h3 style="color: green">${success}</h3>
-								<h3 style="color: red">${invalid}</h3>
-								<form class="common-form" id="signup" method="post" action="sendmail">
-
-									<!-- <div class="form-group">
-											   <div class="profile-pic">
-											    <img src="images/profile-pic.jpg">
-										      </div>
-											  </div> -->
-									<div class="form-group mb20">
-									<h5 style="text-align: center">Please enter your email we will send your password on your email</h5>
-										<br> <input type="email" name="email"
-											class="form-control" placeholder="Enter your Email"
-											maxlength="200" />
-									</div>
-
-									<div class="text-center">
-										<a href="sendmail"><button type="submit"
-												class="btn mt20 btnproperty">Submit</button></a>
-									</div>
-
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	</main>
-	<!-- main End -->
+		<!-- main End -->
 	<footer class="footer-inner">
 		<div class="container-fluid">
 			<div class="row">
