@@ -1,23 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Dashboard
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
+<link rel="apple-touch-icon" sizes="76x76"
+	href="../assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Dashboard</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- CSS Files -->
+<link href="dashboard/assets/css/material-dashboard.css?v=2.1.0"
+	rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
 <!--   <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
+
+
+
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/fonts/stylesheet.css" rel="stylesheet">
+<link href="/resources/css/slick.css" rel="stylesheet">
+<link href="/resources/css/slick-theme.css" rel="stylesheet">
+<link href="/resources/css/style.css" rel="stylesheet">
+<link href="/resources/css/mobile.css" rel="stylesheet">
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+
 
 </head>
 <script>
@@ -31,277 +52,473 @@
 </script>
 
 <body class="dark-edition">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="dashboard/assets/img/sidebar-2.jpg">
-      <!--
+	<div class="wrapper ">
+		<div class="sidebar" data-color="purple" data-background-color="black"
+			data-image="dashboard/assets/img/sidebar-2.jpg">
+			<!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Mobiloitte
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="/Dashboard">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/profile">
-              <i class="material-icons">person</i>
-              <p>Profile</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/table">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/gridview/1">
-              <i class="material-icons">library_books</i>
-              <p>Grid View</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/emplist">
-              <i class="material-icons">library_books</i>
-              <p>List view</p>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="/tabView">
-              <i class="material-icons">library_books</i>
-              <p>Tab View</p>
-            </a>
-          </li>
-           <li class="nav-item  ">
-            <a class="nav-link" href="/mapview">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/logout" onclick="{return function3();}">
-              <i class="material-icons">bubble_chart</i>
-              <p>Log Out</p>
-            </a>
-          </li>
+			<div class="logo">
+				<a href="http://www.creative-tim.com"
+					class="simple-text logo-normal"> Mobiloitte </a>
+			</div>
+			<div class="sidebar-wrapper">
+				<ul class="nav">
+					<li class="nav-item active  "><a class="nav-link"
+						href="/Dashboard"> <i class="material-icons">dashboard</i>
+							<p>Dashboard</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="/profile">
+							<i class="material-icons">person</i>
+							<p>Profile</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="/table"> <i
+							class="material-icons">content_paste</i>
+							<p>Table List</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="/gridview/1">
+							<i class="material-icons">library_books</i>
+							<p>Grid View</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="/emplist">
+							<i class="material-icons">library_books</i>
+							<p>List view</p>
+					</a></li>
+					<li class="nav-item  "><a class="nav-link" href="/tabView">
+							<i class="material-icons">library_books</i>
+							<p>Tab View</p>
+					</a></li>
+					<li class="nav-item  "><a class="nav-link" href="/mapview">
+							<i class="material-icons">location_ons</i>
+							<p>Maps</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="/logout"
+						onclick="{return function3();}"> <i class="material-icons">bubble_chart</i>
+							<p>Log Out</p>
+					</a></li>
 
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
-          </div>
-          
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              
-            </form>
-            <ul class="navbar-nav">
-              
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      
-  <!--   Core JS Files   -->
-  <script src="dashboard/assets/js/core/jquery.min.js"></script>
-  <script src="dashboard//assets/js/core/popper.min.js"></script>
-  <script src="dashboard//assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
-  <script src="dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="dashboard/assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="dashboard/assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="dashboard/assets/js/material-dashboard.js?v=2.1.0"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="dashboard/assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
+				</ul>
+			</div>
+		</div>
+		<div class="main-panel">
+			<!-- Navbar -->
+			<nav
+				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top "
+				id="navigation-example">
+				<div class="container-fluid">
+					<div class="navbar-wrapper">
+						<a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+					</div>
 
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
+					<div class="collapse navbar-collapse justify-content-end">
+						<form class="navbar-form"></form>
+						<ul class="navbar-nav">
 
-        $full_page = $('.full-page');
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+			<div class="content">
+				<div class="container-fluid">
+					<!-- your content here -->
+					<main class="main-container bg_gray">
+					<section class="inner_section common_section">
+						<div class="container">
+							<div class="max-WT-600 center-box">
+								<div class="global_box">
+									<div class="head_box2 head_box2_border">
+										<h5 style="color: green">${update}</h5>
+									</div>
+									<div id="container"
+										style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-        $sidebar_responsive = $('body > .navbar-collapse');
+									<table id="datatable">
+										<thead>
+											<tr>
+												<th></th>
+												<th><b>Admin</b></th>
+												<th><b>User</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>Admin</th>
+												<td>${chartData}</td>
+											</tr>
+											<tr>
+												<th>User</th>
+												<td>${userData}</td>
+											</tr>
+										</tbody>
+									</table>
 
-        window_width = $(window).width();
+								</div>
+							</div>
+						</div>
+					</section>
+					</main>
+					<!-- your content here -->
+				</div>
+			</div>
+			<!--   Core JS Files   -->
 
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
+				<script src="/resources/js/jquery-3.3.1.min.js"></script>
+				<script src="/resources/js/popper.min.js"></script>
+				<script src="/resources/js/bootstrap.min.js"></script>
+				<script src="/resources/js/marquee.js"></script>
+				<script src="/resources/js/slick.min.js"></script>
+				<script src="/resources/js/common.js"></script>
+			<script src="/resources/js/chart.js"></script>
 
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
+			<script src="dashboard/assets/js/core/jquery.min.js"></script>
+			<script src="dashboard//assets/js/core/popper.min.js"></script>
+			<script
+				src="dashboard//assets/js/core/bootstrap-material-design.min.js"></script>
+			<script src="https://unpkg.com/default-passive-events"></script>
+			<script
+				src="dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+			<!-- Place this tag in your head or just before your close body tag. -->
+			<script async defer src="https://buttons.github.io/buttons.js"></script>
+			<!--  Google Maps Plugin    -->
+			<script
+				src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+			<!-- Chartist JS -->
+			<script src="dashboard/assets/js/plugins/chartist.min.js"></script>
+			<!--  Notifications Plugin    -->
+			<script src="dashboard/assets/js/plugins/bootstrap-notify.js"></script>
+			<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+			<script src="dashboard/assets/js/material-dashboard.js?v=2.1.0"></script>
+			<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+			<script src="dashboard/assets/demo/demo.js"></script>
+			<script>
+				$(document)
+						.ready(
+								function() {
+									$()
+											.ready(
+													function() {
+														$sidebar = $('.sidebar');
 
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+														$sidebar_img_container = $sidebar
+																.find('.sidebar-background');
 
-          var new_color = $(this).data('color');
+														$full_page = $('.full-page');
 
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
+														$sidebar_responsive = $('body > .navbar-collapse');
 
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
+														window_width = $(window)
+																.width();
 
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
+														$('.fixed-plugin a')
+																.click(
+																		function(
+																				event) {
+																			// Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+																			if ($(
+																					this)
+																					.hasClass(
+																							'switch-trigger')) {
+																				if (event.stopPropagation) {
+																					event
+																							.stopPropagation();
+																				} else if (window.event) {
+																					window.event.cancelBubble = true;
+																				}
+																			}
+																		});
 
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+														$(
+																'.fixed-plugin .active-color span')
+																.click(
+																		function() {
+																			$full_page_background = $('.full-page-background');
 
-          var new_color = $(this).data('background-color');
+																			$(
+																					this)
+																					.siblings()
+																					.removeClass(
+																							'active');
+																			$(
+																					this)
+																					.addClass(
+																							'active');
 
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
+																			var new_color = $(
+																					this)
+																					.data(
+																							'color');
 
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
+																			if ($sidebar.length != 0) {
+																				$sidebar
+																						.attr(
+																								'data-color',
+																								new_color);
+																			}
 
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
+																			if ($full_page.length != 0) {
+																				$full_page
+																						.attr(
+																								'filter-color',
+																								new_color);
+																			}
 
+																			if ($sidebar_responsive.length != 0) {
+																				$sidebar_responsive
+																						.attr(
+																								'data-color',
+																								new_color);
+																			}
+																		});
 
-          var new_image = $(this).find("img").attr('src');
+														$(
+																'.fixed-plugin .background-color .badge')
+																.click(
+																		function() {
+																			$(
+																					this)
+																					.siblings()
+																					.removeClass(
+																							'active');
+																			$(
+																					this)
+																					.addClass(
+																							'active');
 
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
+																			var new_color = $(
+																					this)
+																					.data(
+																							'background-color');
 
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+																			if ($sidebar.length != 0) {
+																				$sidebar
+																						.attr(
+																								'data-background-color',
+																								new_color);
+																			}
+																		});
 
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
+														$(
+																'.fixed-plugin .img-holder')
+																.click(
+																		function() {
+																			$full_page_background = $('.full-page-background');
 
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+																			$(
+																					this)
+																					.parent(
+																							'li')
+																					.siblings()
+																					.removeClass(
+																							'active');
+																			$(
+																					this)
+																					.parent(
+																							'li')
+																					.addClass(
+																							'active');
 
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
+																			var new_image = $(
+																					this)
+																					.find(
+																							"img")
+																					.attr(
+																							'src');
 
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
+																			if ($sidebar_img_container.length != 0
+																					&& $('.switch-sidebar-image input:checked').length != 0) {
+																				$sidebar_img_container
+																						.fadeOut(
+																								'fast',
+																								function() {
+																									$sidebar_img_container
+																											.css(
+																													'background-image',
+																													'url("'
+																															+ new_image
+																															+ '")');
+																									$sidebar_img_container
+																											.fadeIn('fast');
+																								});
+																			}
 
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
+																			if ($full_page_background.length != 0
+																					&& $('.switch-sidebar-image input:checked').length != 0) {
+																				var new_image_full_page = $(
+																						'.fixed-plugin li.active .img-holder')
+																						.find(
+																								'img')
+																						.data(
+																								'src');
 
-          $input = $(this);
+																				$full_page_background
+																						.fadeOut(
+																								'fast',
+																								function() {
+																									$full_page_background
+																											.css(
+																													'background-image',
+																													'url("'
+																															+ new_image_full_page
+																															+ '")');
+																									$full_page_background
+																											.fadeIn('fast');
+																								});
+																			}
 
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
+																			if ($('.switch-sidebar-image input:checked').length == 0) {
+																				var new_image = $(
+																						'.fixed-plugin li.active .img-holder')
+																						.find(
+																								"img")
+																						.attr(
+																								'src');
+																				var new_image_full_page = $(
+																						'.fixed-plugin li.active .img-holder')
+																						.find(
+																								'img')
+																						.data(
+																								'src');
 
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
+																				$sidebar_img_container
+																						.css(
+																								'background-image',
+																								'url("'
+																										+ new_image
+																										+ '")');
+																				$full_page_background
+																						.css(
+																								'background-image',
+																								'url("'
+																										+ new_image_full_page
+																										+ '")');
+																			}
 
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
+																			if ($sidebar_responsive.length != 0) {
+																				$sidebar_responsive
+																						.css(
+																								'background-image',
+																								'url("'
+																										+ new_image
+																										+ '")');
+																			}
+																		});
 
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
+														$(
+																'.switch-sidebar-image input')
+																.change(
+																		function() {
+																			$full_page_background = $('.full-page-background');
 
-            background_image = false;
-          }
-        });
+																			$input = $(this);
 
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
+																			if ($input
+																					.is(':checked')) {
+																				if ($sidebar_img_container.length != 0) {
+																					$sidebar_img_container
+																							.fadeIn('fast');
+																					$sidebar
+																							.attr(
+																									'data-image',
+																									'#');
+																				}
 
-          $input = $(this);
+																				if ($full_page_background.length != 0) {
+																					$full_page_background
+																							.fadeIn('fast');
+																					$full_page
+																							.attr(
+																									'data-image',
+																									'#');
+																				}
 
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
+																				background_image = true;
+																			} else {
+																				if ($sidebar_img_container.length != 0) {
+																					$sidebar
+																							.removeAttr('data-image');
+																					$sidebar_img_container
+																							.fadeOut('fast');
+																				}
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+																				if ($full_page_background.length != 0) {
+																					$full_page
+																							.removeAttr(
+																									'data-image',
+																									'#');
+																					$full_page_background
+																							.fadeOut('fast');
+																				}
 
-          } else {
+																				background_image = false;
+																			}
+																		});
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+														$(
+																'.switch-sidebar-mini input')
+																.change(
+																		function() {
+																			$body = $('body');
 
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
+																			$input = $(this);
 
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
+																			if (md.misc.sidebar_mini_active == true) {
+																				$(
+																						'body')
+																						.removeClass(
+																								'sidebar-mini');
+																				md.misc.sidebar_mini_active = false;
 
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
+																				$(
+																						'.sidebar .sidebar-wrapper, .main-panel')
+																						.perfectScrollbar();
 
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
+																			} else {
 
-        });
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
-    });
-  </script>
+																				$(
+																						'.sidebar .sidebar-wrapper, .main-panel')
+																						.perfectScrollbar(
+																								'destroy');
+
+																				setTimeout(
+																						function() {
+																							$(
+																									'body')
+																									.addClass(
+																											'sidebar-mini');
+
+																							md.misc.sidebar_mini_active = true;
+																						},
+																						300);
+																			}
+
+																			// we simulate the window Resize so the charts will get updated in realtime.
+																			var simulateWindowResize = setInterval(
+																					function() {
+																						window
+																								.dispatchEvent(new Event(
+																										'resize'));
+																					},
+																					180);
+
+																			// we stop the simulation of Window Resize after the animations are completed
+																			setTimeout(
+																					function() {
+																						clearInterval(simulateWindowResize);
+																					},
+																					1000);
+
+																		});
+													});
+								});
+			</script>
+			<script>
+				$(document).ready(function() {
+					// Javascript method's body can be found in assets/js/demos.js
+					md.initDashboardPageCharts();
+				});
+			</script>
 </body>
 </html>

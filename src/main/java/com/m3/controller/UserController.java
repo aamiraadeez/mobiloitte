@@ -32,13 +32,22 @@ public class UserController {
 	
 
 	@GetMapping(value = "/Dashboard")
-	public String Dashboard(HttpSession session) {
-		if (session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
+	public String Dashboard(HttpSession session , Model model ) {
+		try {
+			if (session.getAttribute("email") == null && session.getAttribute("email").equals("")) {
+				return "redirect:/login";
+			} else {
+				model.addAttribute("chartData", service.getChartData());
+				model.addAttribute("userData", service.getProfileCount());
+				return "chart";
+			}
+		} catch (Exception e) {
 			return "redirect:/login";
-		} else {
-			return "Dashboard";
 		}
+
 	}
+	
+
 
 	@GetMapping("/signup")
 	public String signup() {
@@ -256,20 +265,6 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/chart")
-	public String chart(Model model, HttpSession session) {
-		try {
-			if (session.getAttribute("email") == null && session.getAttribute("email").equals("")) {
-				return "redirect:/login";
-			} else {
-				model.addAttribute("chartData", service.getChartData());
-				model.addAttribute("userData", service.getProfileCount());
-				return "chart";
-			}
-		} catch (Exception e) {
-			return "redirect:/login";
-		}
-	}
 
 	
 	
