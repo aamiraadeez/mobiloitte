@@ -36,7 +36,8 @@ public interface Userservice {
 	int getChartData();
 
 	int getProfileCount();
-
+	
+	List<String> getProfileName();
 	
 
 }

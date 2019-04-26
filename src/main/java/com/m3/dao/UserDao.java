@@ -45,4 +45,6 @@ public interface UserDao {
 
 	int getProfileCount();
 
+	List<String> getProfileName();
+
 }

@@ -30,8 +30,7 @@
 <link href="../assets/demo/demo.css" rel="stylesheet" />
 
 <!-- profress bar css  start -->
-<!-- <link href="../assets/css/progressbar.css" -->
-rel="stylesheet" />
+<!-- <link href="../assets/css/progressbar.css" rel="stylesheet" /> -->
 <!-- profress bar css end -->
 <style>
 #firstName-error {
@@ -44,7 +43,7 @@ rel="stylesheet" />
 
 #emailName-error {
 	color: red;
-}
+}1111
 
 #password-error {
 	color: red;
@@ -230,10 +229,6 @@ rel="stylesheet" />
 												</div>
 											</div>
 										</div>
-
-
-
-
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
@@ -468,12 +463,26 @@ rel="stylesheet" />
 	</script>
 
 
+
+
+
+
+	<!-- ajax brefore validations  start -->
+	$(document).ready(function() { $('#form').submit(function(e) {
+
+	e.preventDefault(); var $form = $(this); // check if the input is valid
+	if(! $form.valid()) return false; $.ajax( { type:'POST', url:'add.php',
+	data:$('#form').serialize(), success:function(response) {
+	$("#answers").html(response); } }); }) });
+
+	<!-- ajax brefore validations  end-->
+
 	<script>
 		$(document).ready(function() {
 			$('#email').change(function(event) {
 				$("#ajaxStart").attr("disabled", false);
 				var email = $('#email').val();
-						// alert(email);
+				// alert(email);
 				$.ajax({
 					url : "registerValidation?email=" + email,
 					type : "GET",
@@ -486,8 +495,7 @@ rel="stylesheet" />
 							$('#result').html("email already exist");
 							$("#ajaxStart").attr("disabled", true);
 						} else {
-						// $('#result').html( "email available ");
-
+							$('#result').html("");
 						}
 					},
 					error : function(e) {

@@ -1,6 +1,7 @@
 package com.m3.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -19,18 +20,47 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.m3.model.UserModel;
 import com.m3.service.Userservice;
 
+
+
+/**
+ * @author Mohammad aamir
+ *
+ */
 @Controller
 public class UserController {
 
 	@Autowired
 	Userservice service;
 
+	/**
+	 * @return login page
+	 */
 	@GetMapping(value = "/login")
 	public String login() {
 		return "login";
 	}
 	
 
+	/**
+	 * @return signup page
+	 */
+	@GetMapping("/signup")
+	public String signup() {
+		return "signup";
+	}
+
+	/**
+	 * @return forgetpassword page
+	 */
+	@GetMapping("/forgetpassword")
+	public String forget() {
+		return "forgetpassword";
+	}
+	/**
+	 * @param session
+	 * @param model
+	 * @return Dashboard page 
+	 */
 	@GetMapping(value = "/Dashboard")
 	public String Dashboard(HttpSession session , Model model ) {
 		try {
@@ -39,33 +69,33 @@ public class UserController {
 			} else {
 				model.addAttribute("chartData", service.getChartData());
 				model.addAttribute("userData", service.getProfileCount());
-				return "chart";
+				return "Dashboard";
 			}
 		} catch (Exception e) {
 			return "redirect:/login";
 		}
 
 	}
-	
 
-
-	@GetMapping("/signup")
-	public String signup() {
-		return "signup";
-	}
-
-	@GetMapping("/forgetpassword")
-	public String forget() {
-		return "forgetpassword";
-	}
-
+	/**
+	 * @param user
+	 * @return addprofile to serviceImpl
+	 * @throws IOException
+	 */
 	@PostMapping(value = "/addProfile")
 	@ResponseBody
 	public Map<String, Object> addProfile(@RequestBody UserModel user) throws IOException {
-		System.out.println("user: " + user);
+		//		System.out.println("user: " + user);
 		return service.addProfile(user);
 	}
 
+	/**
+	 * @param user
+	 * @param model
+	 * @param r
+	 * @param httpsession
+	 * @return trysessionLogin page to serviceImpl
+	 */
 	@PostMapping(value = "/loginValidation")
 	public String loginValidation(UserModel user, Model model, RedirectAttributes r, HttpSession httpsession) {
 		String confirm = service.trysessionLogin(user);
@@ -82,6 +112,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param user
+	 * @param rd
+	 * @return addprofile to serivce Impl
+	 * @throws IOException
+	 */
 	@PostMapping(value = "/registerValidation")
 	public String registerValidation(UserModel user, RedirectAttributes rd) throws IOException {
 
@@ -96,6 +132,11 @@ public class UserController {
 	}
 	
 	
+	/**
+	 * @param email
+	 * @return  getemailcountAjax via email  
+	 * @throws IOException
+	 */
 	@GetMapping(value = "/registerValidation")
 	@ResponseBody
 	public String registerValidation1(@RequestParam String email) throws IOException {
@@ -108,6 +149,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param user
+	 * @param model
+	 * @param session
+	 * @return get all employee list 
+	 */
 	@GetMapping(value = "/emplist")
 	public String emplist(UserModel user, Model model, HttpSession session) {
 		if (session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
@@ -118,12 +165,25 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param id
+	 * @param model
+	 * @param user
+	 * @param rd
+	 * @return delete profile by id 
+	 */
 	@GetMapping(value = "/emplist/delete")
 	public String deleteProfilefromEmplist(@RequestParam Long id, Model model, UserModel user, RedirectAttributes rd) {
 		service.deleteProfile(id);
 		return "redirect:/emplist";
 	}
 
+	/**
+	 * @param user
+	 * @param model
+	 * @param session
+	 * @return  get all profile 
+	 */
 	@GetMapping(value = "/table")
 	public String table(UserModel user, Model model, HttpSession session) {
 		if (session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
@@ -134,18 +194,38 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param id
+	 * @param model
+	 * @param user
+	 * @param rd
+	 * @return table view
+	 */
 	@GetMapping(value = "/table/delete")
 	public String deleteProfile(@RequestParam Long id, Model model, UserModel user, RedirectAttributes rd) {
 		service.deleteProfile(id);
 		return "redirect:/table";
 	}
 
+	/**
+	 * @param id
+	 * @param model
+	 * @param user
+	 * @param rd
+	 * @return gridview/delete
+	 */
 	@GetMapping(value = "/gridview/delete")
 	public String deleteFromGridview(@RequestParam Long id, Model model, UserModel user, RedirectAttributes rd) {
 		service.deleteProfile(id);
 		return "redirect:/gridview/1";
 	}
 
+	/**
+	 * @param model
+	 * @param user
+	 * @param session
+	 * @return profile page 
+	 */
 	@GetMapping(value = "/profile")
 	public String profilepage(Model model, UserModel user, HttpSession session) {
 		if (session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
@@ -156,6 +236,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param model
+	 * @param user
+	 * @param session
+	 * @return edit  page 
+	 */
 	@GetMapping(value = "/editProfile")
 	public String editPage(Model model, UserModel user, HttpSession session) {
 		if (session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
@@ -166,6 +252,13 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param model
+	 * @param email
+	 * @param user
+	 * @param session
+	 * @return edit page 1
+	 */
 	@GetMapping(value = "/editProfile1")
 	public String editPage1(Model model, @RequestParam String email, UserModel user, HttpSession session) {
 		if (session.getAttribute("email") != null) {
@@ -176,6 +269,14 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param user
+	 * @param dashId
+	 * @param model
+	 * @param session
+	 * @return updtae profile to service impl
+	 * @throws IOException
+	 */
 	@PostMapping(value = "/editProfile")
 	public String showMyprofile(UserModel user, Long dashId, Model model, HttpSession session) throws IOException {
 		if (session.getAttribute("email") != null) {
@@ -185,6 +286,11 @@ public class UserController {
 			return "redirect:/login";
 	}
 
+	/**
+	 * @param user
+	 * @param model
+	 * @return gridview page 
+	 */
 	@GetMapping(value = "/gridview1")
 	public String gridview1(UserModel user, Model model) {
 		model.addAttribute("ProfileDetails", service.getalluser());
@@ -192,6 +298,13 @@ public class UserController {
 		return "gridview1";
 	}
 
+	/**
+	 * @param model
+	 * @param user
+	 * @param httpsession
+	 * @param page_id
+	 * @return gridview woth pagination page 
+	 */
 	@GetMapping("/gridview/{page_id}")
 	public String listGrid2(Model model, UserModel user, HttpSession httpsession, @PathVariable int page_id) {
 		try {
@@ -219,12 +332,22 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param httpSession
+	 * @return logout 
+	 */
 	@GetMapping("/logout")
 	public String logoutPage(HttpSession httpSession) {
 		httpSession.invalidate();
 		return "redirect:/login";
 	}
 
+	/**
+	 * @param session
+	 * @param user
+	 * @param model
+	 * @return mapview page 
+	 */
 	@GetMapping("/mapview")
 	public String map(HttpSession session, UserModel user, Model model) {
 		try {
@@ -239,6 +362,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param session
+	 * @param user
+	 * @param model
+	 * @return tabview page 
+	 */
 	@GetMapping("/tabView")
 	public String tabview(HttpSession session, UserModel user, Model model) {
 		try {
@@ -253,6 +382,13 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * @param user
+	 * @param session
+	 * @param rd
+	 * @param model
+	 * @return  check profile valid for forget password 
+	 */
 	@PostMapping("/forgetpassword")
 	public String sendMail(UserModel user, HttpSession session, RedirectAttributes rd, Model model) {
 		if (service.isProfileValid(user).equals("Error")) {
@@ -265,8 +401,34 @@ public class UserController {
 		}
 	}
 	
+	
+	/**
+	 * @return graph view page 
+	 */
+	@GetMapping("/graph-view")
+	public String graph1() {
+		return "graph-view";
+	}
 
 	
+//	@GetMapping("/graph-view")
+//	@ResponseBody
+//	public List<String> graph(Model model, UserModel user) {
+//		return service.getProfileName();
+//	}
+//	@GetMapping("graphs")
+//	public String graphPage(HttpSession session) {
+//		try {
+//			if (session.getAttribute("email") == null && session.getAttribute("email").equals("")) {
+//				return "redirect:/login";
+//			} else {
+//				return "graph-view";
+//			}
+//		} catch (Exception e) {
+//			return "redirect:/login";
+//		}
+//	}
+//	
 	
 	
 }

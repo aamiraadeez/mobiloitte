@@ -197,7 +197,14 @@ public class UserServiceImpl implements Userservice {
 		return dao.getProfileCount();
 	}
 
+	@Override
+	public List<String> getProfileName() {
+		return dao.getProfileName();
+	}
+
+
 	
+
 	
 
 }

@@ -13,6 +13,7 @@
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
 <!--     Fonts and icons     -->
+
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet"
@@ -24,11 +25,11 @@
 <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 <script type="text/javascript"
-	src="http://maps.google.com/maps/api/js?key=AIzaSyCIzTZU8ariH_C22VUiJKFq1b9t7IA3_Pg&libraries=places"></script>
+	src="http://maps.google.com/maps/api/js?key=AIzaSyCm8rnRUZU0ecO8hpCF3KVANv9LmAXv0hc&libraries=places"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
-
+0
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -83,7 +84,7 @@
 			return false;
 	}
 </script>
-<body class="dark-edition">
+<body onload="getLocation()" class="dark-edition">
 	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="black"
 			data-image="../assets/img/sidebar-2.jpg">

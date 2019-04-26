@@ -142,4 +142,9 @@ public class UserDaoImpl implements UserDao {
 		return jdbcTemplate.queryForObject(str, Integer.class);
 	}
 
+	@Override
+	public List<String> getProfileName() {
+		String sql = "select firstName from m3";
+		return jdbcTemplate.queryForList(sql, String.class);
+	}
 }
